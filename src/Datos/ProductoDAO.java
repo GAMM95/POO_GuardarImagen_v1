@@ -1,7 +1,7 @@
-package DAO;
+package Datos;
 
-import Conexion.Conexion;
-import VO.ProductoVO;
+import Models.Conexion;
+import Models.ProductoVO;
 import java.sql.*;
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package Conexion;
+package Models;
 
 import java.sql.*;
 import javax.swing.JOptionPane;

@@ -1,4 +1,4 @@
-package VO;
+package Models;
 
 public class ProductoVO {
 

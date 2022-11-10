@@ -1,7 +1,7 @@
 package Tabla;
 
-import DAO.ProductoDAO;
-import VO.ProductoVO;
+import Datos.ProductoDAO;
+import Models.ProductoVO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;

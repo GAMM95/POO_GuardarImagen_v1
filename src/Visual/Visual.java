@@ -1,8 +1,8 @@
 package Visual;
 
-import DAO.ProductoDAO;
+import Datos.ProductoDAO;
 import Tabla.Tabla_ProductoVO;
-import VO.ProductoVO;
+import Models.ProductoVO;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -256,12 +256,17 @@ public class Visual extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSeleccionarFotoActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        String nombre = txtn.getText();
-        double precio = Double.parseDouble(txtp.getText());
-        String marca = txtm.getText();
+//        String nombre = txtn.getText();
+//        double precio = Double.parseDouble(txtp.getText());
+//        String marca = txtm.getText();
+//        
+        vo.setNombre(txtn.getText());
+        vo.setPrecio(Double.parseDouble(txtp.getText()));
+        vo.setMarca(txtm.getText());
         File ruta = new File(txtruta.getText());
 
-        agregar(nombre, precio, marca, ruta);
+//        agregar(nombre, precio, marca, ruta);
+        agregar(vo, ruta);
         t.visualizar_ProductoVO(tabla);
 
     }//GEN-LAST:event_btnAgregarActionPerformed
@@ -280,7 +285,7 @@ public class Visual extends javax.swing.JFrame {
     }//GEN-LAST:event_tablaMouseClicked
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        int id = Integer.parseInt(txtc.getText()); 
+        int id = Integer.parseInt(txtc.getText());
         String nombre = txtn.getText();
         double precio = Double.parseDouble(txtp.getText());
         String marca = txtm.getText();
@@ -308,14 +313,16 @@ public class Visual extends javax.swing.JFrame {
         t.visualizar_ProductoVO(tabla);
     }//GEN-LAST:event_btnEliminarActionPerformed
 
-    public void agregar(String nombre, double precio, String marca, File ruta) {
-        ProductoVO vo = new ProductoVO();
+    public void agregar(ProductoVO x, File ruta) {
         dao = new ProductoDAO();
-
-        vo.setNombre(nombre);
-        vo.setPrecio(precio);
-        vo.setMarca(marca);
         try {
+            vo.setNombre(x.getNombre());
+            vo.setPrecio(x.getPrecio());
+            vo.setMarca(x.getMarca());
+//        vo.setNombre(nombre);
+//        vo.setPrecio(precio);
+//        vo.setMarca(marca);
+
             byte[] icono = new byte[(int) ruta.length()];
             InputStream input = new FileInputStream(ruta);
             input.read(icono);
